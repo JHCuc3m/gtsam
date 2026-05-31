@@ -2,7 +2,15 @@
 
 # pylint: disable=import-outside-toplevel, global-variable-not-assigned, possibly-unused-variable, import-error, import-self
 
+import os
 import sys
+
+# On Windows, Python 3.8+ no longer searches the package directory for DLL
+# dependencies of .pyd extension modules (bpo-36085). Register it explicitly
+# so that gtsam.dll and other runtime DLLs installed alongside the .pyd are
+# found before the extension is loaded.
+if sys.platform == "win32" and hasattr(os, "add_dll_directory"):
+    os.add_dll_directory(os.path.dirname(os.path.abspath(__file__)))
 
 from gtsam.utils import findExampleDataFile
 
