@@ -192,6 +192,9 @@ namespace gtsam {
     /// Fast check for JacobianFactor-based types.
     virtual bool isJacobian() const { return false; }
 
+    /// Fast check for HessianFactor-based types.
+    virtual bool isHessian() const { return false; }
+
     // Determine position of a given key
     template <typename CONTAINER>
     static DenseIndex Slot(const CONTAINER& keys, Key key) {

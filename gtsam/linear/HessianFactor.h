@@ -109,6 +109,7 @@ namespace gtsam {
     typedef SymmetricBlockMatrix::Block Block; ///< A block from the Hessian matrix
     typedef SymmetricBlockMatrix::constBlock constBlock; ///< A block from the Hessian matrix (const version)
 
+    bool isHessian() const override { return true; }
 
     /** default constructor for I/O */
     HessianFactor();
