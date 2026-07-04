@@ -302,7 +302,7 @@ class TemplatedType:
     @staticmethod
     def from_parse_result(t: ParseResults):
         """Get the TemplatedType from the parser results."""
-        return TemplatedType(t.typename, t.template_params.as_list(),
+        return TemplatedType(t.typename, list(t.template_params),
                              t.is_const, t.is_shared_ptr, t.is_ptr, t.is_ref)
 
     def __repr__(self):
